@@ -3,53 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Оплата БК Шаблі</title>
+    <title>Підтримати БК Шаблі</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #121212; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
-        .card { background: #1e1e1e; padding: 2rem; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.7); text-align: center; width: 100%; max-width: 450px; border-top: 5px solid #e63946; }
-        h1 { color: #e63946; margin-bottom: 5px; letter-spacing: 1px; }
-        .subtitle { color: #888; margin-bottom: 25px; font-size: 0.9rem; }
+        body { font-family: 'Roboto', sans-serif; background-color: #121212; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .card { background: #1e1e1e; padding: 2.5rem; border-radius: 24px; box-shadow: 0 20px 50px rgba(0,0,0,0.8); text-align: center; width: 100%; max-width: 400px; border: 1px solid #333; }
+        h1 { font-family: 'Oswald', sans-serif; color: #ff4f00; text-transform: uppercase; margin-bottom: 10px; font-size: 2.5rem; letter-spacing: 2px; }
+        .subtitle { color: #aaa; margin-bottom: 30px; font-size: 1rem; }
         
-        .requisites-box { background: #2a2a2a; padding: 15px; border-radius: 12px; text-align: left; margin-bottom: 20px; border: 1px solid #333; }
-        .req-item { margin-bottom: 10px; font-size: 0.85rem; }
-        .req-label { color: #e63946; font-weight: bold; display: block; margin-bottom: 2px; }
-        .req-value { word-break: break-all; font-family: monospace; color: #fff; font-size: 1rem; }
+        /* Кнопка Buy Me a Coffee */
+        .bmc-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFDD00;
+            color: #000000;
+            padding: 15px 25px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(255, 221, 0, 0.3);
+        }
+        .bmc-button:hover { transform: scale(1.05); background-color: #ffea00; }
+        .bmc-button img { width: 30px; margin-right: 10px; }
 
-        .copy-btn { background: #333; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; margin-top: 10px; width: 100%; transition: 0.3s; }
-        .copy-btn:hover { background: #444; }
+        .divider { height: 1px; background: #333; margin: 20px 0; position: relative; }
+        .divider span { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #1e1e1e; padding: 0 10px; color: #555; font-size: 0.8rem; text-transform: uppercase; }
 
-        .footer { margin-top: 25px; font-size: 0.8rem; color: #555; border-top: 1px solid #333; padding-top: 15px; }
+        .iban-section { text-align: left; background: #181818; padding: 15px; border-radius: 12px; }
+        .iban-label { font-size: 0.75rem; color: #ff4f00; font-weight: bold; }
+        .iban-value { font-family: monospace; font-size: 0.9rem; display: block; margin: 5px 0; color: #eee; }
+        .copy-link { color: #0088cc; text-decoration: none; font-size: 0.8rem; cursor: pointer; }
+
+        .footer { margin-top: 30px; font-size: 0.8rem; color: #444; }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <h1>БК "ШАБЛІ" 🏀</h1>
-    <div class="subtitle">Реквізити для оплати внесків</div>
+    <h1>ШАБЛІ 🏀</h1>
+    <div class="subtitle">Внесок на розвиток команди</div>
     
-    <div class="requisites-box">
-        <div class="req-item">
-            <span class="req-label">Отримувач:</span>
-            <span class="req-value">Підкалюк Вячеслав Миколайович</span>
-        </div>
-        <div class="req-item">
-            <span class="req-label">IBAN:</span>
-            <span class="req-value" id="iban">UA523006140000026207900829201</span>
-        </div>
-        <div class="req-item">
-            <span class="req-label">ІПН:</span>
-            <span class="req-value">3133321071</span>
-        </div>
-        <div class="req-item">
-            <span class="req-label">Призначення:</span>
-            <span class="req-value">Повернення боргу</span>
-        </div>
-        
-        <button class="copy-btn" onclick="copyIBAN()">📋 Копіювати IBAN</button>
+    <a href="https://www.buymeacoffee.com/YOUR_USERNAME" target="_blank" class="bmc-button">
+        <img src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg" alt="BMC logo">
+        <span>Підтримати команду</span>
+    </a>
+
+    <div class="divider"><span>Або прямий переказ</span></div>
+
+    <div class="iban-section">
+        <span class="iban-label">IBAN ПІДКАЛЮК В.М.</span>
+        <span class="iban-value" id="iban">UA523006140000026207900829201</span>
+        <a class="copy-link" onclick="copyIBAN()">Копіювати реквізити</a>
     </div>
 
     <div class="footer">
-        З питань внесків: В’ячеслав (Президент БК)
+        Президент клубу: В'ячеслав Підкалюк
     </div>
 </div>
 
@@ -57,13 +69,7 @@
     function copyIBAN() {
         const iban = document.getElementById('iban').innerText;
         navigator.clipboard.writeText(iban).then(() => {
-            const btn = document.querySelector('.copy-btn');
-            btn.innerText = '✅ Скопійовано!';
-            btn.style.background = '#28a745';
-            setTimeout(() => {
-                btn.innerText = '📋 Копіювати IBAN';
-                btn.style.background = '#333';
-            }, 2000);
+            alert('Реквізити скопійовано!');
         });
     }
 </script>
