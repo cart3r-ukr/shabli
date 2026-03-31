@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оплата БК Шаблі</title>
+    <style>
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #121212; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; padding: 20px; }
+        .card { background: #1e1e1e; padding: 2rem; border-radius: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.7); text-align: center; width: 100%; max-width: 450px; border-top: 5px solid #e63946; }
+        h1 { color: #e63946; margin-bottom: 5px; letter-spacing: 1px; }
+        .subtitle { color: #888; margin-bottom: 25px; font-size: 0.9rem; }
+        
+        .requisites-box { background: #2a2a2a; padding: 15px; border-radius: 12px; text-align: left; margin-bottom: 20px; border: 1px solid #333; }
+        .req-item { margin-bottom: 10px; font-size: 0.85rem; }
+        .req-label { color: #e63946; font-weight: bold; display: block; margin-bottom: 2px; }
+        .req-value { word-break: break-all; font-family: monospace; color: #fff; font-size: 1rem; }
+
+        .copy-btn { background: #333; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; margin-top: 10px; width: 100%; transition: 0.3s; }
+        .copy-btn:hover { background: #444; }
+
+        .footer { margin-top: 25px; font-size: 0.8rem; color: #555; border-top: 1px solid #333; padding-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>БК "ШАБЛІ" 🏀</h1>
+    <div class="subtitle">Реквізити для оплати внесків</div>
+    
+    <div class="requisites-box">
+        <div class="req-item">
+            <span class="req-label">Отримувач:</span>
+            <span class="req-value">Підкалюк Вячеслав Миколайович</span>
+        </div>
+        <div class="req-item">
+            <span class="req-label">IBAN:</span>
+            <span class="req-value" id="iban">UA523006140000026207900829201</span>
+        </div>
+        <div class="req-item">
+            <span class="req-label">ІПН:</span>
+            <span class="req-value">3133321071</span>
+        </div>
+        <div class="req-item">
+            <span class="req-label">Призначення:</span>
+            <span class="req-value">Поповнення рахунку Підкалюк В.М.</span>
+        </div>
+        
+        <button class="copy-btn" onclick="copyIBAN()">📋 Копіювати IBAN</button>
+    </div>
+
+    <div class="footer">
+        З питань внесків: В’ячеслав (Президент БК)
+    </div>
+</div>
+
+<script>
+    function copyIBAN() {
+        const iban = document.getElementById('iban').innerText;
+        navigator.clipboard.writeText(iban).then(() => {
+            const btn = document.querySelector('.copy-btn');
+            btn.innerText = '✅ Скопійовано!';
+            btn.style.background = '#28a745';
+            setTimeout(() => {
+                btn.innerText = '📋 Копіювати IBAN';
+                btn.style.background = '#333';
+            }, 2000);
+        });
+    }
+</script>
+
+</body>
+</html>
